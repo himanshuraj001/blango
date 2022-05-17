@@ -49,10 +49,12 @@ class Dev(Configuration):
       'django.contrib.sessions',
       'django.contrib.messages',
       'django.contrib.staticfiles',
+      'blango_auth',
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
       "debug_toolbar",
+      
   ]
 
   MIDDLEWARE = [
@@ -136,6 +138,7 @@ class Dev(Configuration):
   # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
   STATIC_URL = '/static/'
+  AUTH_USER_MODEL = "blango_auth.User"
 
   # Default primary key field type
   # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
