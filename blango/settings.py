@@ -63,6 +63,7 @@ class Dev(Configuration):
       "rest_framework.authtoken",
       "drf_yasg",
       "django_filters",
+      "versatileimagefield",
   ]
   SITE_ID = 1
   ACCOUNT_USER_MODEL_USERNAME_FIELD = None
@@ -101,6 +102,8 @@ class Dev(Configuration):
   ]
 
   WSGI_APPLICATION = 'blango.wsgi.application'
+  MEDIA_ROOT = BASE_DIR / "media"
+  MEDIA_URL = "/media/"
 
 
   # Database
