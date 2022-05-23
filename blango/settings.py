@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from datetime import timedelta
 import os
 from pathlib import Path
 from configurations import Configuration
@@ -173,6 +173,7 @@ class Dev(Configuration):
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
@@ -200,7 +201,14 @@ class Dev(Configuration):
 
 
 
+
+
+
   EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+  SIMPLE_JWT = {
+        "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+        "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+        }
   ACCOUNT_ACTIVATION_DAYS = 7
   SWAGGER_SETTINGS = {
         "SECURITY_DEFINITIONS": {
@@ -208,6 +216,7 @@ class Dev(Configuration):
             "Basic": {"type": "basic"},
         }
         }
+
   LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
