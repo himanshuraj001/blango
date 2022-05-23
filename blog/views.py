@@ -12,6 +12,10 @@ from django.shortcuts import render, get_object_or_404
 logger = logging.getLogger(__name__)
 #@cache_page(300)
 #@vary_on_headers("Cookie")
+
+def post_table(request):
+    return render(request, "blog/post-table.html")
+    
 def index(request):
   #logger.debug("Index function is called!")
   #return HttpResponse(str(request.user).encode("ascii"))
